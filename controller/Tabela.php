@@ -47,7 +47,19 @@ class Tabela
   }
   public function getMessage()
   {
-    return $this->message;
+    if (is_string($this->error)) {
+      return $this->message;
+    } else {
+      $msg = new Template("view/msg.html");
+      if ($this->error) {
+        $msg->set("cor", "danger");
+      } else {
+        $msg->set("cor", "success");
+      }
+      $msg->set("msg", $this->message);
+      $msg->set("uri", "?class=Tabela");
+      return $msg->saida();
+    }
   }
   public function __destruct()
   {
