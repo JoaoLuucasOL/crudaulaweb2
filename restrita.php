@@ -15,13 +15,13 @@ spl_autoload_register("classLoader");
 
 Session::startSession();
 if (!Session::getValue('id')) {
-  header("Location: {Aplicacao::app}/");
+  header("Location:" . Aplicacao::$app . "/");
 }
 
 // Front Controller
 class Aplicacao
 {
-  static private $app = "/lazaro2";
+  static public $app = "/lazaro2";
   public static function run()
   {
     $layout = new Template('view/layout.html');
