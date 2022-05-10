@@ -9,7 +9,7 @@ class Session
   {
     $_SESSION[$key] = $value;
   }
-  public function getValue($key)
+  public static function getValue($key)
   {
     if (isset($_SESSION[$key])) {
       return $_SESSION[$key];

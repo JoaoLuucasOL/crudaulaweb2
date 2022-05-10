@@ -15,7 +15,7 @@ spl_autoload_register("classLoader");
 
 Session::startSession();
 if (!Session::getValue('id')) {
-  header("Location: /");
+  header("Location: {Aplicacao::app}/");
 }
 
 // Front Controller
