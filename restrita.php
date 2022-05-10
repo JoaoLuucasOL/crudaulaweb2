@@ -12,6 +12,12 @@ function classLoader($class)
   }
 }
 spl_autoload_register("classLoader");
+
+Session::startSession();
+if (!Session::getValue('id')) {
+  header("Location: /");
+}
+
 // Front Controller
 class Aplicacao
 {
